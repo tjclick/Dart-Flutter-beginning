@@ -1,0 +1,65 @@
+// List/Map/Set 변환
+  List<String> blackpink = ['a', 'b','c'];
+  
+//   print(blackpink);
+//   print(blackpink.asMap());
+//   print(blackpink.toSet());
+  
+//   Map 인스턴스 생성
+   Map blackpinkMap = blackpink.asMap();
+//   print(blackpinkMap.keys);
+//   print(blackpinkMap.values);
+//   print(blackpinkMap.keys.toList());
+  
+//   Set 인스턴스 생성   
+   Set blackpinkSet = Set.from(blackpink);
+//   print(blackpinkSet.toList());
+  
+//   Final Arrow함수 Map 치환
+  final newblackpink = blackpink.map((e){
+    return '테스트 $e';
+  });
+//   print (newblackpink);
+//   print (newblackpink.toList());
+  
+  final newblackpink2 = blackpink.map((e2) => '테스트2 $e2');
+//   print (newblackpink2);
+//   print (newblackpink2.toList());
+  
+  String number = '13579';
+  final parsed = number.split('').map((e)=> '$e.jpg').toList();
+  print(parsed);
+--------------------------------------------------------------------------
+  Map<String, String> testMap01 = {
+    'key01' : 'value01',
+    'key02' : 'value02',
+    'key03' : 'value03',
+  };
+
+// Map Key만 가져오기
+  final newTestMap01 = testMap01.keys.map((e)=> 'KeyMapFunc $e');
+//   print(newTestMap01);
+//   print(newTestMap01.toList());
+
+// Map Value만 가져오기
+  final newTestMap02 = testMap01.values.map((e)=> 'ValueMapFunc $e');
+//   print(newTestMap02);
+//   print(newTestMap02.toList());
+  
+// List<Map> where문 조합하기    
+  List<Map<String, String>> listMap01 = [
+    {
+      'mapKey01' : 'map1Val01',
+      'mapKey02' : 'map1Val02',
+    },
+    {
+      'mapKey01' : 'map2Val01',
+      'mapKey02' : 'map2Val02',
+    }
+  ];
+    
+  final newListMap01 = listMap01.where((e)=> e['mapKey01']=='map1Val01');
+  print(newListMap01);
+  
+  final newListMap02 = listMap01.where((e)=> e['mapKey02']=='map2Val02');
+  print(newListMap02);
