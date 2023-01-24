@@ -1,0 +1,84 @@
+void main() {
+  // 자녀로 일하심(부모의 기름부으심)
+  GodofSons geonu = GodofSons('"윤건우"','11', '"논현초등학생"');
+  // 자녀의 열매
+  geonu.fnWorking();
+  geonu.fnAge('"Male"');
+  geonu.personCapacity('"Language, Art, History"');
+  
+  print('-------------------------------------------------------');
+  
+  GodofSons seung = GodofSons('"윤승용"','54', '"모비오스팀장"');
+  seung.fnWorking();
+  seung.fnAge('"Male"');
+  seung.personCapacity('"DART, FLUTTER, ORACLE Export"');
+}
+
+// 부모 클라스 생성
+class GodFather {
+  // 부모의 연합 변수
+  final String name;
+  final String age;
+  final String working;
+
+  // 부모의 연합 생성자
+  GodFather(this.name, this.age, this.working);
+
+  // 부모의 은사 함수
+  void fnWorking() {
+    print('우리 가족중에 ${this.name}는 ${this.working} 입니다');
+  }
+
+  // 부모의 은사 함수
+  void fnAge(String sex) {
+    print('우리 가족중에 ${this.name}는 ${this.age}살 ${sex}입니다');
+  }
+}
+
+// 자녀 클라스 생성
+class GodofSons extends GodFather {
+  // 자녀의 부모 연합 소통
+  GodofSons(
+    String name,
+    String age,
+    String working,
+    // 능력의 전달되는 부모와의 연합 생성
+  ) : super(name, age, working);
+  
+  // 자녀 은사 함수
+  void personCapacity(String talent){
+    print('하나님께서 주신 개인 은사는 ${talent} 입니다');
+  }
+}
+
+=================================================================
+[ Class and Inheritance ]
+
+void main() {
+  Idol geon = Idol(
+     "베스트맴버",['아빠', '엄마', '건우']
+  );
+  
+  print(geon.name);
+  print(geon.members);
+  geon.announance();
+  geon.family();
+}
+
+class Idol {
+  String name;
+  List<String> members;
+  
+  Idol(String name, List<String>members) :
+      this.name = name, 
+      this.members = members;
+  
+  void announance(){
+    print('안녕하세요. 하나님의 사랑 ${this.name}');
+
+  }
+  
+  void family(){
+    print('우리 가족은 ${this.members}');
+  }
+}
