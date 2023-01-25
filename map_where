@@ -1,0 +1,51 @@
+void main() {
+  final List<Map<String, String>> family = [
+    {
+      'name': '승용',
+      'group': '반포',
+    },
+    {
+      'name': '건우',
+      'group': '반포',
+    },
+    {
+      'name': '명주',
+      'group': '천안',
+    },
+  ];
+
+  final parsedPeople = family.map(
+    (e) => Person(
+      name: e['name']!, 
+      group: e['group']!,
+    ),
+  ).toList();
+  
+  //print(parsedPeople);
+  
+  for (Person person in parsedPeople) {
+    print(person.name);
+    print(person.group);
+  }
+  
+  final local = parsedPeople.where(
+    (e) => e.group == '반포',
+  );
+  print(local);
+  
+}
+
+class Person {
+  final String name;
+  final String group;
+
+  Person({
+    required this.name,
+    required this.group,
+  });
+  
+  @override
+  String toString() {
+    return 'name:$name, group:$group';
+  }
+}
