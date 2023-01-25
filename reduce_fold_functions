@@ -1,0 +1,21 @@
+void main() {
+  List<int> numbers = [1, 3, 5, 7, 9];
+  
+  final result = numbers.reduce((prev, next){
+//     print('--------------');
+//     print('prev : $prev');
+//     print('next : $next');
+//     print('total : ${prev+next}');
+    return prev+next;
+  });
+  //print(result);
+  
+  List<String> words = ['저는 플루터 개발자 ', '리더 윤승용 ', '입니다'];
+  
+  final testStr = words.reduce((prev, next) => prev+next);
+  print(testStr);
+  
+  final testStr2 = words.fold<int>(0, (prev, next)=> prev+next.length);
+  print(testStr2);
+
+}
