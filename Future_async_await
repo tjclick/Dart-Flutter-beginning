@@ -1,0 +1,21 @@
+void main() async {
+  //await addNum(2, 2);
+  //await addNum(4, 4);
+  
+  final result1 = await addNum(2, 2);
+  final result2 = await addNum(4, 4);
+  
+  print('result1 + result2 = ${result1+result2}');
+}
+
+Future<int> addNum(int num1, int num2) async {
+    print ('1)START : $num1 + $num2');
+    
+    await Future.delayed(Duration(seconds:2), (){
+      print('2)calc $num1 + $num2 = ${num1+num2}');
+    });
+  
+    print ('3)END : $num1 + $num2');
+  
+  return num1 + num2;
+}
