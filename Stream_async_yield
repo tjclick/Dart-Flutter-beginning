@@ -1,0 +1,46 @@
+import 'dart:async';
+
+void main() {
+  final controller = StreamController();
+  final stream = controller.stream.asBroadcastStream();
+
+  final streamListener1 = stream.listen((val) {
+    //print('Listen#1 : $val');
+  });
+
+  final streamListener2 = stream.listen((val) {
+    //print('Listen#2 : $val');
+  });
+
+  final streamListener3 = stream.where((val) => val % 2 == 0).listen((val) {
+    print('Listen#3 : $val');
+  });
+
+  controller.sink.add(1);
+  controller.sink.add(2);
+  controller.sink.add(3);
+
+  calc(1).listen((val) {
+    print('calculate#1: $val');
+  });
+  
+  calc(2).listen((val) {
+    print('calculate#2: $val');
+  });
+  
+  calcStreamStep().listen((val){
+    print('calculate#3: $val');
+  });
+}
+// 비동기 동시 실행
+Stream<int> calc(int number) async* {
+  for (int i = 0; i < 3; i++) {
+    yield i * number;
+  }
+}
+
+// yield* await와 같은 기능(비동기실행, 순차적결과)
+Stream<int> calcStreamStep() async* {
+  yield* calc(4);
+  yield* calc(100);
+}
