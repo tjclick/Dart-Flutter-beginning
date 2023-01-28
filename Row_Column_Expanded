@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: darkBlue,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: Container(
+          color: Colors.white,
+          //width: MediaQuery.of(context).size.width,
+          width: double.infinity,
+          height: double.infinity,
+
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                //mainAxisSize: MainAxisSize.min,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      height: 50.0,
+                      width: 50.0,
+                      color: Colors.red,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      height: 50,
+                      width: 50,
+                      color: Colors.yellow,
+                    ),
+                  ),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    color: Colors.blue,
+                    child: Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          style: TextButton.styleFrom(
+                            foregroundColor: Colors.red,
+                            backgroundColor: Colors.white,
+                          ),
+                          child: Text('Home'),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.home,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
+          ),
+        ),
+      ),
+    );
+  }
+}
